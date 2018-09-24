@@ -8,104 +8,108 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController, UITextFieldDelegate {
+public extension ExpressibleByIntegerLiteral {
+    public static func arc4random() -> Self {
+        var r: Self = 0
+        arc4random_buf(&r, MemoryLayout<Self>.size)
+        return r
+    }
+}// взял метод генерации случ чисел
+let selfNameLabelArray = ["Gleb Glebov", "Ivan Ivanov", "Tom Tompson"]
+let birthdayLabelArray = ["14 September 1990", "4 March 2000", "23 February 1988"]
+let studiLabelArray = ["Kazan Federal University", "Moscow State University", "Oxford University"]
+let instNameLabelArray = ["alxarsnk", "1233", "krut_official"]
 
+class ThirdViewController: UIViewController, UITextFieldDelegate {
+  
+    @IBOutlet weak var scrollBlockScrollView: UIScrollView!
+    @IBOutlet var fullBlockView: UIView!
+    @IBOutlet weak var mainInformblockView: UIView!
+    @IBOutlet weak var avatarImagineView: UIImageView!
+    @IBOutlet weak var selfNameLabel: UILabel!
+    @IBOutlet weak var onLineStatusLabel: UILabel!
+    @IBOutlet weak var onLineStatusIconImagineView: UIImageView!
+    @IBOutlet weak var shortInfoLabel: UILabel!
+    
+    
+    @IBOutlet weak var statusBlockView: UIView!
+    @IBOutlet weak var statusNameLabel: UILabel!
+    @IBOutlet weak var statusTextField: UITextField!
+    
+    @IBOutlet weak var mainInfoBlockBiew: UIView!
+    @IBOutlet weak var birthdayNameLAbel: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var studiNameLAbel: UILabel!
+    @IBOutlet weak var studiLabel: UILabel!
+    @IBOutlet weak var lineImagineView: UIImageView!
+    
+    @IBOutlet weak var conatactBlockView: UIView!
+    @IBOutlet weak var instaIconImagineView: UIImageView!
+    @IBOutlet weak var vkIconImagineView: UIImageView!
+    @IBOutlet weak var homeIconImagineView: UIImageView!
+    @IBOutlet weak var instNameLabel: UILabel!
+    @IBOutlet weak var homeCityLabel: UILabel!
+    @IBOutlet weak var vknameLabel: UILabel!
+    @IBOutlet weak var line1ImagineView: UIImageView!
+    @IBOutlet weak var contactNameLabel: UILabel!
+    @IBOutlet weak var line2ImagineView: UIImageView!
+    
+    
+    @IBOutlet weak var educationBlockView: UIView!
+    @IBOutlet weak var vuzNameLabel: UILabel!
+    @IBOutlet weak var facLabel: UILabel!
+    @IBOutlet weak var vuzLabel: UILabel!
+    @IBOutlet weak var educationNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var giftBlockView: UIView!
+    @IBOutlet weak var firPodImagineView: UIImageView!
+    @IBOutlet weak var nextButtImagineView: UIImageView!
+    @IBOutlet weak var thirPodImagineView: UIImageView!
+    @IBOutlet weak var secPodImagineView: UIImageView!
+    @IBOutlet weak var giftNameLabel: UILabel!
+    @IBOutlet weak var toGiftListButton: UIButton!
+    
+    
+    @IBOutlet weak var pageBlockView: UIView!
+    @IBOutlet weak var toNotesButton: UIButton!
+    @IBOutlet weak var toNoteWorthyPagesButton: UIButton!
+    @IBOutlet weak var nextNotesIconImagineView: UIImageView!
+    @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet weak var numOfNotesLAbel: UILabel!
+    @IBOutlet weak var line3ImagineView: UIImageView!
+    @IBOutlet weak var notevorthyPagesLabel: UILabel!
+    @IBOutlet weak var numOfNoteworthyPagesLAbel: UILabel!
+    @IBOutlet weak var toNoteWorthyPagesIconImagineView: UIImageView!
+    @IBOutlet weak var backBlockNavigatiomItem: UINavigationItem!
+    @IBOutlet weak var backItemButtonItem: UIBarButtonItem!
+    
+    let randomName = arc4random_uniform(UInt32(selfNameLabelArray.count))
+    let randomBirth = arc4random_uniform(UInt32(birthdayLabelArray.count))
+    let randomUniversity = arc4random_uniform(UInt32(studiLabelArray.count))
+    let randomInstaName = arc4random_uniform(UInt32(instNameLabelArray.count))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        status.delegate = self
-        avatar.layer.cornerRadius = avatar.frame.size.width/2
-        self.avatar.clipsToBounds = true
-       
-        // Do any additional setup after loading the view.
+        statusTextField.delegate = self
+        avatarImagineView.layer.cornerRadius = avatarImagineView.frame.size.width/2
+        self.avatarImagineView.clipsToBounds = true
+        birthdayLabel.text = birthdayLabelArray[Int(randomBirth)]
+        selfNameLabel.text = selfNameLabelArray[Int(randomName)]
+        studiLabel.text = studiLabelArray[Int(randomUniversity)]
+        instNameLabel.text = instNameLabelArray[Int(randomInstaName)]
     }
 
-    @IBOutlet weak var scrollBlock: UIScrollView!
-    @IBOutlet var fullBlock: UIView!
-    @IBOutlet weak var mainInformblock: UIView! //1
-        @IBOutlet weak var avatar: UIImageView! //2
-    @IBOutlet weak var selfName: UILabel! //3
-        @IBOutlet weak var onLineStatus: UILabel! //4
-        @IBOutlet weak var onLineStatusIcon: UIImageView!//5
-        @IBOutlet weak var shortInfo: UILabel!//6
- 
-  
-    @IBOutlet weak var statusBlock: UIView!//7
-        @IBOutlet weak var statusName: UILabel!//8
-        @IBOutlet weak var status: UITextField!//9
-    
-    @IBOutlet weak var mainInfoBlock: UIView!
-        @IBOutlet weak var birthdayName: UILabel!
-        @IBOutlet weak var birthday: UILabel!
-        @IBOutlet weak var studiName: UILabel!
-        @IBOutlet weak var studi: UILabel!
-        @IBOutlet weak var line: UIImageView! //15
-  
-    @IBOutlet weak var conatactBlock: UIView!
-        @IBOutlet weak var instaIcon: UIImageView!
-        @IBOutlet weak var vkIcon: UIImageView!
-        @IBOutlet weak var homeIcon: UIImageView!
-        @IBOutlet weak var instName: UILabel!
-        @IBOutlet weak var homeCity: UILabel!
-        @IBOutlet weak var vkname: UILabel!
-        @IBOutlet weak var line1: UIImageView!
-        @IBOutlet weak var contactName: UILabel!
-        @IBOutlet weak var line2: UIImageView! //25
-    
- 
-    @IBOutlet weak var educationBlock: UIView!
-        @IBOutlet weak var vuzName: UILabel!
-        @IBOutlet weak var fac: UILabel!
-        @IBOutlet weak var vuz: UILabel!
-        @IBOutlet weak var educationName: UILabel! //30
-    
-    
-    @IBOutlet weak var giftBlock: UIView!
-        @IBOutlet weak var firPod: UIImageView!
-        @IBOutlet weak var nextButt: UIImageView!
-        @IBOutlet weak var thirPod: UIImageView!
-        @IBOutlet weak var secPod: UIImageView!
-        @IBOutlet weak var giftName: UILabel!
-        @IBOutlet weak var toGiftList: UIButton! //37
-    
-  
-    @IBOutlet weak var pageBlock: UIView! //38
-        @IBOutlet weak var toNotesButt: UIButton!
-        @IBOutlet weak var toNoteWorthyPagesButt: UIButton!
-        @IBOutlet weak var nextNotesIcon: UIImageView!
-        @IBOutlet weak var notes: UILabel!
-        @IBOutlet weak var numOfNotes: UILabel!
-        @IBOutlet weak var line3: UIImageView!
-        @IBOutlet weak var notevorthyPages: UILabel!
-        @IBOutlet weak var numOfNoteworthyPages: UILabel!
-        @IBOutlet weak var toNoteWorthyPagesIcon: UIImageView!
-    //47
-    @IBOutlet weak var backBlock: UINavigationItem!
-   @IBOutlet weak var backItem: UIBarButtonItem!
-    
- 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func change(_ sender: Any) {
+    @IBAction func change(_ sender: Any) { // корректная работа итзмения статуса(код не лишний тут)
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  
+   
 
 }

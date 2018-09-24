@@ -10,50 +10,37 @@ import UIKit
 
 class GiftListViewController: UIViewController {
 
+   
+    
+    @IBOutlet var fullBlockView: UIView!
+    @IBOutlet weak var scrollBlockScrollView: UIScrollView!
+    @IBOutlet weak var firstPodBlockView: UIView!
+    @IBOutlet weak var picFirstPodImagineView: UIImageView!
+    @IBOutlet weak var nameFirstPodLabel: UILabel!
+    @IBOutlet weak var timeFirstPodLabel: UILabel!
+    @IBOutlet weak var firstPodImagineView: UIImageView!
+    
+    @IBOutlet weak var secPodBlockView: UIView!
+    @IBOutlet weak var picSecPodImagineView: UIImageView!
+    @IBOutlet weak var nameSecPodLabel: UILabel!
+    @IBOutlet weak var timeSecPodLabel: UILabel!
+    @IBOutlet weak var secPodImagineView: UIImageView!
+    
+    @IBOutlet weak var thirPodBlockVie: UIView!
+    @IBOutlet weak var nameThirPOdLabel: UILabel!
+    @IBOutlet weak var picThirPodImagineView: UIImageView!
+    @IBOutlet weak var timeThirPodLabel: UILabel!
+    @IBOutlet weak var thirPodImagineView: UIImageView!
+    
+    @IBOutlet weak var BackBlockNavigationItem: UINavigationItem!
+    @IBOutlet weak var backItemBarButtonItem: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
-    
-    @IBOutlet var fullBlock: UIView!
-    @IBOutlet weak var scrollBlock: UIScrollView!
-    @IBOutlet weak var firstPodBlock: UIView!
-        @IBOutlet weak var picFirstPod: UIImageView!
-        @IBOutlet weak var nameFirstPod: UILabel!
-        @IBOutlet weak var timeFirstPod: UILabel!
-        @IBOutlet weak var firstPod: UIImageView!
-    
-    @IBOutlet weak var secPodBlock: UIView!
-        @IBOutlet weak var picSecPod: UIImageView!
-        @IBOutlet weak var nameSecPod: UILabel!
-        @IBOutlet weak var timeSecPod: UILabel!
-        @IBOutlet weak var secPod: UIImageView!
-    
-    @IBOutlet weak var thirPodBlock: UIView!
-        @IBOutlet weak var nameThirPOd: UILabel!
-        @IBOutlet weak var picThirPod: UIImageView!
-        @IBOutlet weak var timeThirPod: UILabel!
-        @IBOutlet weak var thirPod: UIImageView!
-    
-    @IBOutlet weak var BackBlock: UINavigationItem!
-    @IBOutlet weak var backItem: UIBarButtonItem!
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }
